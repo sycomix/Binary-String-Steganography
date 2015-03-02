@@ -7,18 +7,28 @@ im = Image.open(rawim)
 pixels = im.load()
 pix_x = int(raw_input('Enter width of image: '))
 pix_y = int(raw_input('Enter height of image: '))
-
 for x in range(pix_x):
 	for y in range(pix_y):
-		r, g, b, a = im.getpixel((x,y))
-		if r % 2 == 1:
-			r = r-1 
-		if g % 2 == 1:
-			g = g-1
-		if b % 2 == 1:
-			b = b-1
-		if a % 2 ==1:
-			a = a-1
-		pixels[x,y] = (r,g,b,a)
+		values = im.getpixel((x,y))
+		if len(values) == 4:
+			r, g, b, a = im.getpixel((x,y))
+			if r % 2 == 1:
+				r = r-1 
+			if g % 2 == 1:
+				g = g-1
+			if b % 2 == 1:
+				b = b-1
+			if a % 2 ==1:
+				a = a-1
+			pixels[x,y] = (r,g,b,a)
+		elif len(values) == 3:
+			r,g,b = im.getpixel((x,y))
+			if r % 2 == 1:
+				r = r-1 
+			if g % 2 == 1:
+				g = g-1
+			if b % 2 == 1:
+				b = b-1
+			pixels[x,y] = (r,g,b)
 im.save('output.png')
 			

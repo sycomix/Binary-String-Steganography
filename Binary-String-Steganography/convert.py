@@ -10,13 +10,15 @@ pix_y = int(raw_input('Enter height of image: '))
 
 for x in range(pix_x):
 	for y in range(pix_y):
-		r, g, b = im.getpixel((x,y))
+		r, g, b, a = im.getpixel((x,y))
 		if r % 2 == 1:
 			r = r-1 
 		if g % 2 == 1:
 			g = g-1
 		if b % 2 == 1:
 			b = b-1
-		pixels[x,y] = (r,g,b)
+		if a % 2 ==1:
+			a = a-1
+		pixels[x,y] = (r,g,b,a)
 im.save('output.png')
 			

@@ -5,8 +5,7 @@ from PIL import Image
 rawim = raw_input('Choose an image to convert: ')
 im = Image.open(rawim)
 pixels = im.load()
-pix_x = int(raw_input('Enter width of image: '))
-pix_y = int(raw_input('Enter height of image: '))
+pix_x, pix_y = im.size
 for x in range(pix_x):
 	for y in range(pix_y):
 		values = im.getpixel((x,y))

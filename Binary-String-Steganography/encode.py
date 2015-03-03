@@ -13,11 +13,15 @@ x = 0
 while i < len(binary):
 	values = len(im.getpixel((x,y)))
 	if values == 4:
+		while len(binary) % 4 != 0:
+			binary.append('0')
 		r,g,b,a = im.getpixel((x,y))
 		pixel[x,y] = (r+int(binary[i]), b+int(binary[i+1]), g+int(binary[i+2]), a+int(binary[i+3]))
 		i += 4
 		x += 1
 	elif values == 3:
+		while len(binary) % 3 != 0:
+			binary.append('0')
 		r,g,b = im.getpixel((x,y))
 		pixel[x,y] = (r+int(binary[i]), b+int(binary[i+1]), g+int(binary[i+2]))
 		i += 3

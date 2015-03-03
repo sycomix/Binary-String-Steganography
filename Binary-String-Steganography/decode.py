@@ -5,7 +5,7 @@ from PIL import Image
 rawim = raw_input('Enter a file to decode: ')
 im = Image.open(rawim)
 pixel = im.load()
-pix_x = int(raw_input('Enter width of the image: '))
+pix_x, pix_y = im.size
 y = int(raw_input('Enter Y value of message: '))
 string = []
 for x in range(pix_x):
@@ -42,9 +42,7 @@ for x in range(pix_x):
 			string.append('0')
 		if b % 2 == 1:
 			string.append('1')
-		
 while len(string) % 8 != 0:
 	string.append('0')
 binary = ''.join(string)
-print binary 
-
+print binary

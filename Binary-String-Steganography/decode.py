@@ -45,4 +45,5 @@ for x in range(pix_x):
 while len(string) % 8 != 0:
 	string.append('0')
 binary = ''.join(string)
-print binary
+message = ''.join(chr(int(binary[i:i+8], 2)) for i in xrange(0, len(binary), 8))
+print message

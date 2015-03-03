@@ -2,8 +2,9 @@
 #California Academy of Mathematics and Science 
 from PIL import Image 
 
-message = raw_input('Enter a binary sring to hide: ')
-binary = list(message)
+message = raw_input('Enter a sring to hide: ')
+binary_str = ''.join(format(ord(a),'b').zfill(8) for a in message)
+binary = list(binary_str)
 rawim = raw_input('Select an input file: ')
 y = int(raw_input('Select starting Y value: '))
 im = Image.open(rawim)
